@@ -3,6 +3,8 @@ import 'dart:async';
 
 import 'package:workout_fitness/SignUp/SignUpScreen.dart';
 
+import '../CoachIntro/CoachIntroScreen.dart';
+
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -139,7 +141,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ],
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CoachIntroScreen(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
