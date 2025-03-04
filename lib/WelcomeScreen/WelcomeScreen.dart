@@ -171,7 +171,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       child: Divider(
                         color: Colors.white54,
                         thickness: 0.5,
-                        indent: 50,
+                        indent: 1,
                         endIndent: 10, // ลดให้เส้นไม่ติดตัวหนังสือ
                       ),
                     ),
@@ -191,27 +191,37 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         color: Colors.white54,
                         thickness: 0.5,
                         indent: 10, // ลดให้เส้นไม่ติดตัวหนังสือ
-                        endIndent: 50,
+                        endIndent: 1,
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 5),
-
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return (SignUpScreen());
-                    }));
+                    showModalBottomSheet(
+                      //showDragHandle: true,
+                      isScrollControlled: true, // ให้มีขนาดเล็กลง
+                      context: context,
+                      backgroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(20)),
+                      ),
+                      builder: (context) => Container(
+                        padding: EdgeInsets.all(16),
+                        height: MediaQuery.of(context).size.height *
+                            0.4, // ปรับให้ไม่เต็มจอ
+                        child: SignUpScreen(), // ใช้หน้าจอสมัคร
+                      ),
+                    );
                   },
                   child: Text(
                     "Continue with your existing account >",
                     style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.white,
-                      fontFamily: "Georgia",
-                    ),
+                        color: Colors.white54,
+                        fontSize: 10,
+                        fontFamily: "Georgia"),
                   ),
                 ),
                 const SizedBox(height: 20),

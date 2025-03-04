@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'dart:io';
@@ -191,18 +192,39 @@ class _SignUpScreenState extends State<SignUpScreen> {
     }
   }
 
+  Future<void> _loginWithFacebook() async {
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+    });
+
+    try {
+      // This is a placeholder - Facebook authentication would need to be implemented
+      // based on your specific requirements and authentication setup
+      _showErrorDialog(
+          "Facebook Sign-In", "Facebook sign-in is not yet implemented.");
+    } catch (e) {
+      setState(() => _errorMessage = e.toString());
+      _showErrorDialog("Facebook Sign-In Failed",
+          "An error occurred during Facebook sign-in. Please try again.");
+    } finally {
+      setState(() => _isLoading = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Align(
           alignment: Alignment.centerLeft,
           child: Text(
             "Continue with",
             style: TextStyle(
               color: Colors.white,
-              fontSize: 32,
+              fontSize: 18,
               fontFamily: "Georgia",
               fontWeight: FontWeight.bold,
             ),
@@ -327,10 +349,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         margin: EdgeInsets.only(bottom: 24),
                         child: ElevatedButton.icon(
                           onPressed: _isLoading ? null : _signInWithGoogle,
-                          icon: Icon(Icons.g_mobiledata, size: 24),
+                          icon: FaIcon(FontAwesomeIcons.google,
+                              size: 16, color: Colors.black),
                           label: Text(
                             "Google",
                             style: TextStyle(
+                              color: Colors.black,
                               fontSize: 16,
                               fontFamily: "Georgia",
                             ),
@@ -366,27 +390,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         ListTile(
-                                          leading: Icon(Icons.email,
+                                          leading: Icon(Icons.facebook,
                                               color: Colors.white),
-                                          title: Text("Sign in with Email",
+                                          title: Text("Sign in with Fackbook",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontFamily: "Georgia")),
                                           onTap: () {
-                                            Navigator.pop(context);
+                                            _loginWithFacebook();
                                             // Show email sign in form
-                                          },
-                                        ),
-                                        ListTile(
-                                          leading: Icon(Icons.phone,
-                                              color: Colors.white),
-                                          title: Text("Sign in with Phone",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: "Georgia")),
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                            // Show phone sign in form
                                           },
                                         ),
                                       ],
@@ -400,7 +412,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Text(
                               "Others",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontFamily: "Georgia",
                                 color: Colors.white,
                               ),
