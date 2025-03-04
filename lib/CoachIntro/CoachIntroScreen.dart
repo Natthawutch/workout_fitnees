@@ -38,13 +38,13 @@ class CoachIntroScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: NetworkImage(
-                      "https://t4.ftcdn.net/jpg/05/24/37/87/360_F_524378797_bpQ0qPiUVilMWsG0RFl3Z9HL9Jt0tlXO.jpg",
+                      "https://as1.ftcdn.net/v2/jpg/05/24/37/84/1000_F_524378456_7iH4roEgy8t8351zKypjRumlIbRfwhIO.jpg",
                     ), // รูปโค้ช
                   ),
                 ],
               ),
 
-              SizedBox(height: 16), // ระยะห่าง
+              SizedBox(height: 10), // ระยะห่าง
 
               Text(
                 "I'm your personal coach.\nHere are some questions to tailor a",
@@ -102,15 +102,16 @@ class CoachIntroScreen extends StatelessWidget {
                       "I'M READY",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
+                        fontFamily: "Georgia",
                       ),
                     ),
                   ),
                 ),
               ),
 
-              SizedBox(height: 30), // เว้นที่ด้านล่าง
+              SizedBox(height: 40), // เว้นที่ด้านล่าง
             ],
           ),
         ),
