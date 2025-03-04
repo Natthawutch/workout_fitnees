@@ -31,10 +31,23 @@ dependencies:
   flutter:
     sdk: flutter
   video_player: ^2.9.3
+  firebase_core: ^3.12.1
+  firebase_auth: ^5.5.1
+  google_sign_in: ^6.2.2
+  sign_in_with_apple: ^6.1.4
+  intl: ^0.19.0
+  flutter_localization: ^0.3.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  flutter_gen: ^5.10.0
+  easy_localization: ^3.0.7+1
+
+
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +64,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - asset/lang/
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -73,9 +89,9 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: KhanomPangPing
-      fonts:
-        - asset: fonts/317PANIKhanomPangPingDemo-Regular.ttf
+  # fonts:
+  #   - family: KhanomPangPing
+  #     fonts:
+  #       - asset: fonts/317PANIKhanomPangPingDemo-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

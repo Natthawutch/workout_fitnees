@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:workout_fitness/SignUp/SignUpScreen.dart';
+
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -79,10 +81,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             opacity: animation,
                             child: SlideTransition(
                               position: Tween<Offset>(
-                                begin: const Offset(1, 0),
+                                begin: const Offset(0.5, 0), // เริ่มจากขวา
                                 end: Offset.zero,
                               ).animate(animation),
-                              child: child,
+                              child: ScaleTransition(
+                                scale: Tween<double>(
+                                  begin: 0.8, // เริ่มจากเล็กลง
+                                  end: 1.0,
+                                ).animate(animation),
+                                child: child,
+                              ),
                             ),
                           );
                         },
@@ -95,6 +103,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                             fontFamily: "Georgia",
+                            shadows: [
+                              Shadow(
+                                blurRadius: 8,
+                                color: Colors.black54,
+                                offset: Offset(2, 2),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -139,7 +154,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "KhanomPangPing",
+                          fontFamily: "Georgia",
                           color: Colors.white,
                           letterSpacing: 1.5,
                         ),
@@ -164,7 +179,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       opacity: 0.6,
                       child: const Text(
                         "Already our user?",
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: TextStyle(
+                          color: Colors.white54,
+                          fontSize: 10,
+                          fontFamily: "Georgia",
+                        ),
                       ),
                     ),
                     const Expanded(
@@ -180,17 +199,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 5),
 
                 TextButton(
-                  onPressed: () {},
-                  child: const Text(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return (SignUpScreen());
+                    }));
+                  },
+                  child: Text(
                     "Continue with your existing account >",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 10,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontFamily: "Georgia",
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
               ],
             ),
