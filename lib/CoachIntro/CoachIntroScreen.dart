@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Loading/GoalFocusScreen .dart';
+
 class CoachIntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -86,7 +88,7 @@ class CoachIntroScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            CoachIntroScreen()), // แก้ให้เป็นหน้าที่ต้องการไป
+                            GoalFocusScreen()), // แก้ให้เป็นหน้าที่ต้องการไป
                   );
                 },
                 borderRadius: BorderRadius.circular(30),
